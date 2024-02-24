@@ -27,15 +27,15 @@ def default_options(file_name):
     sys.exit()
 
 def main(argv):
+    print(argv)
     file_name = None
     option = None
-    print(argv)
 
     if len(argv) == 1:
             file_name = argv[0]
     if not len(argv) == 1:
         try:
-            opts, args = getopt(argv, 'c:i:w:m: ', ['byte=', 'line=', 'word=', 'char='])
+            opts, args = getopt(argv, 'c:l:w:m:', ['byte=', 'line=', 'word=', 'char='])
         except GetoptError:
             print(f'{__name__} -c <command> failed')
             sys.exit(2)
@@ -49,7 +49,7 @@ def main(argv):
 
         if option in ('-c', '--byte'):
             result = count_bytes(file_name)
-        elif option in ('-i', '--line'):
+        elif option in ('-l', '--line'):
             result = count_lines(file_name)
         elif option in ('-w', '--word'):
             result = count_words(file_name)

@@ -7,7 +7,7 @@ This repo contains all challenges i am working on from codingChallenges
   -  It's implementation is in Python.
   -  finds the word count, byte count, line count and character count of a file
 
-# How to use  CCWC to mimic wc command
+# How to use  CCWC to mimic Linux wc command
 ### - fork this repo
 ### - change to ccwc folder 
 ### - you can run the ccwc.py script by running the python interpreter

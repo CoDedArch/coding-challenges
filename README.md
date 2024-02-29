@@ -1,11 +1,12 @@
 # coding-challenges
-This repo contains all challenges i am working on from codingChallenges
+This repo contains all challenges i am working on from codingChallenges and any platform
 
 
 #challenges
 - Word count which mimic the linux wc terminal command.
   -  It's implementation is in Python.
   -  finds the word count, byte count, line count and character count of a file
+- Bisection method of solving non-linear equations to find the best estimated or approximated root.
 
 # How to use  CCWC to mimic Linux wc command
 ### - fork this repo

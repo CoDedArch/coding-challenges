@@ -1,5 +1,8 @@
 class Bisection(object):
-    """Bisection method is going to accept a function and the interval for the function"""
+    """
+    Bisection method is going to accept a function and the interval for the function and 
+        find the correct estimated root
+    """
     def __init__(self, prob_func:str, interval:str):
         self.prob_func = prob_func
         self.interval = interval.split(',')

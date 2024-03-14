@@ -51,6 +51,10 @@ class LinkedList(object):
 
 newElement = LinkedList()
 newElement.addElement(1)
+newElement.addElement(1)
+newElement.addElement(2)
+newElement.addElement(2)
+newElement.addElement(2)
 newElement.addElement(2)
 for node in newElement.returnNodes():
     print(node.value)

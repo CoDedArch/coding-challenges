@@ -1,5 +1,7 @@
+import unittest
+
 name = 'keL'
-print (name.split())
+print (name.isupper())
 
 
 class CorrectCapitalization:
@@ -24,9 +26,13 @@ class CorrectCapitalization:
         letters_all_caps = True
         while letters_all_caps:
             for letter in string_to_check:
-                if letter is not letter.isupper():
+                if not letter.isupper():
                     letters_all_caps = False
+                    print(letter)
+                    print(letters_all_caps)
                     break
+            break
+        print(letters_all_caps)
         return letters_all_caps
     def check_for_no_caps(self, string_to_check:str):
         return string_to_check.islower()
@@ -48,11 +54,27 @@ class CorrectCapitalization:
         self.cap_conditions.append(self.check_all_caps(string_to_check))
         self.cap_conditions.append(self.check_for_no_caps(string_to_check))
         self.cap_conditions.append(self.only_first_is_cap(string_to_check))
+        print(self.cap_conditions)
         return 
 
     def check_is_correctly_cap(self):
         self.set_cap_conditions(self.string_input)
-        self.is_correctly_capitalized = all(self.cap_conditions)
+        self.is_correctly_capitalized = any(self.cap_conditions)
         return self.is_correctly_capitalized
 
 
+class TestCapitalization(unittest.TestCase):
+    def test_is_correctly_capitalized(self):
+        usa = CorrectCapitalization('USA')
+        calvin = CorrectCapitalization('Calvin')
+        computer = CorrectCapitalization('CompUter')
+        coding = CorrectCapitalization('coding')
+        self.assertEqual(usa.check_is_correctly_cap(), True)
+        self.assertEqual(calvin.check_is_correctly_cap(), True)
+        self.assertEqual(computer.check_is_correctly_cap(), False)
+        self.assertEqual(coding.check_is_correctly_cap(), True)
+
+
+
+if __name__ == '__main__':
+    unittest.main()

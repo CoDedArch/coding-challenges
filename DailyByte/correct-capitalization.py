@@ -19,15 +19,10 @@ class CorrectCapitalization:
             input_string (str): user input 
         """
         self.string_input = input_string
-        self.cap_conditions = []
+        self.cap_conditions = [self.string_input.isupper(),
+                               self.string_input.islower()]
         self.is_correctly_capitalized = None
 
-    def check_all_caps(self, string_to_check:str):
-        return string_to_check.isupper()
-    
-    def check_for_no_caps(self, string_to_check:str):
-        return string_to_check.islower()
-    
     def only_first_is_cap(self, string_to_check:str):
         first_letter_cap = True
         remaining_letters_not_cap = True
@@ -37,13 +32,12 @@ class CorrectCapitalization:
         if not first_letter.isupper():
             first_letter_cap = False
         
-        if not self.check_for_no_caps(remaining_letters):
+        if not remaining_letters.islower():
+            print('in')
             remaining_letters_not_cap = False
         return all([first_letter_cap, remaining_letters_not_cap])
     
     def set_cap_conditions(self, string_to_check):
-        self.cap_conditions.append(self.check_all_caps(string_to_check))
-        self.cap_conditions.append(self.check_for_no_caps(string_to_check))
         self.cap_conditions.append(self.only_first_is_cap(string_to_check))
         print(self.cap_conditions)
         return 

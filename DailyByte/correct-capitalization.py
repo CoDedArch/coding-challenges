@@ -14,6 +14,13 @@ class CorrectCapitalization:
         """
         self.string_input = input_string
         self.cap_conditions = []
-
+    def check_all_caps(self, string_to_check:str):
+        letters_all_caps = True
+        while letters_all_caps:
+            for letter in string_to_check:
+                if letter is not letter.isupper():
+                    letters_all_caps = False
+                    break
+        return letters_all_caps                
     def set_cap_conditions(self):
-        pass
+        self.cap_conditions.append(self.check_all_caps(self.string_input))      

@@ -23,17 +23,8 @@ class CorrectCapitalization:
         self.is_correctly_capitalized = None
 
     def check_all_caps(self, string_to_check:str):
-        letters_all_caps = True
-        while letters_all_caps:
-            for letter in string_to_check:
-                if not letter.isupper():
-                    letters_all_caps = False
-                    print(letter)
-                    print(letters_all_caps)
-                    break
-            break
-        print(letters_all_caps)
-        return letters_all_caps
+        return string_to_check.isupper()
+    
     def check_for_no_caps(self, string_to_check:str):
         return string_to_check.islower()
     

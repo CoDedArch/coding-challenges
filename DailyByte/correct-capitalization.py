@@ -1,8 +1,5 @@
 import unittest
 
-name = 'keL'
-print (name.isupper())
-
 
 class CorrectCapitalization:
     """This Class Answers Google Questions
@@ -40,7 +37,7 @@ class CorrectCapitalization:
     def set_cap_conditions(self, string_to_check):
         self.cap_conditions.append(self.only_first_is_cap(string_to_check))
         print(self.cap_conditions)
-        return 
+        return
 
     def check_is_correctly_cap(self):
         self.set_cap_conditions(self.string_input)

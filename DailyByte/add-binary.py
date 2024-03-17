@@ -44,6 +44,7 @@ def rem_leading_zero(string_to_remove):
     if len(string_to_remove) > 1:
         if string_to_remove[0] == '0':
             return string_to_remove[1:]
+    return string_to_remove
 
 def add_binary(first_string_bin:str, second_string_bin:str):
     """Accepts to binary strings and returns their sum
@@ -77,4 +78,4 @@ def add_binary(first_string_bin:str, second_string_bin:str):
         print(new_added_string)
     return 'string passed is not a valid binary string'
 
-print(add_binary('1', '1'))
+print(add_binary('11', '1'))

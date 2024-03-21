@@ -1,3 +1,4 @@
+from DailyByte import *
 import sys
 from getopt import getopt, GetoptError
 

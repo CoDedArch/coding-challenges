@@ -32,11 +32,10 @@ def check_is_binary(string_to_check:str):
     Returns:
         bool: True if all conditions are satisfied, else False any fails
     """
-    test_conditions = [
-        string_to_check.isnumeric(),
-        check_chars_are_1_and_0(string_to_check)
-    ]
-    return all(test_conditions)
+    is_binary = False
+    if string_to_check.isnumeric() and check_chars_are_1_and_0(string_to_check):
+        is_binary = True
+    return is_binary
 
 def rem_leading_zero(string_to_remove):
     """remove leading 0 unless string itself"""

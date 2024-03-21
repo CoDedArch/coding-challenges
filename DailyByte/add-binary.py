@@ -6,75 +6,35 @@
     Note: neither binary string will contain
     leading 0s unless the string itself
 """
-def check_chars_are_1_and_0(string_to_check:str):
-    """Checks if string are only binary
+def is_binary(s:str):
+    """Check if a string is a binary string."""
+    return s.isnumeric() and set(s) <= {'0', '1'}
 
-    Args:
-        string_to_check (str): 
-
-    Returns:
-        bool: True chars are bits else False
-    """
-    all_chars_binary = True
-    for char in string_to_check:
-        if not char in ('1', '0'):
-            all_chars_binary = False
-            break
-    return all_chars_binary
-
-def check_is_binary(string_to_check:str):
-    """Accepts a string, run test conditions to see if it satisfies
-    as a binary string
-
-    Args:
-        string_to_check (str): String to run test conditions against
-
-    Returns:
-        bool: True if all conditions are satisfied, else False any fails
-    """
-    is_binary = False
-    if string_to_check.isnumeric() and check_chars_are_1_and_0(string_to_check):
-        is_binary = True
-    return is_binary
-
-def rem_leading_zero(string_to_remove):
+def remove_zeros(s:str):
     """remove leading 0 unless string itself"""
+    return s.lstrip('0') or '0'
 
-    if len(string_to_remove) > 1:
-        if string_to_remove[0] == '0':
-            return string_to_remove[1:]
-    return string_to_remove
+def add_binary(str_a:str, str_b:str):
+    """Add two binary strings and return the result as a binary string."""
+    str_a = remove_zeros(str_a)
+    str_b = remove_zeros(str_b)
 
-def add_binary(first_string_bin:str, second_string_bin:str):
-    """Accepts to binary strings and returns their sum
-
-    Args:
-        first_string_bin (str): 
-        second_string_bin (str):
-
-    Returns:
-        str: string of bits
-    """
-    first_string_bin = rem_leading_zero(first_string_bin)
-    second_string_bin = rem_leading_zero(second_string_bin)
-
-    if check_is_binary(first_string_bin) and check_chars_are_1_and_0(second_string_bin):
-        solution = None
-        new_added_string = ''
-        count_ = 0
-        for i in range(len(first_string_bin)):
-            solution = int(first_string_bin[-i]) + int(second_string_bin)
-            if solution in (0,1):
-                if len(first_string_bin) > 1:
-                    solution = first_string_bin[:-i] + str(solution)
-                return str(solution)
+    if is_binary(str_a) and is_binary(str_b):
+        result = ''
+        carry = 0
+        for i in range(len(str_a)):
+            sum = int(str_a[-i]) + int(str_b)
+            if sum in (0,1):
+                if len(str_a) > 1:
+                    sum = str_a[:-i] + str(sum)
+                return str(sum)
             else:
-                count_ +=1
-                new_added_string += '0'
-                if count_ == len(first_string_bin):
-                    solution = '1' + new_added_string
-                    return solution
-        print(new_added_string)
+                carry +=1
+                result += '0'
+                if carry == len(str_a):
+                    sum = '1' + result
+                    return sum
+        print(result)
     return 'string passed is not a valid binary string'
 
-print(add_binary('11', '1'))
+print(add_binary('111', '1'))

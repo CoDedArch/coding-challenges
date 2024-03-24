@@ -9,6 +9,7 @@ class Bisection(object):
     
     def findIndependentVar(self):
         return [self.prob_func[i+1] for i in range(len(self.prob_func)) if self.prob_func[i] == '('][0]
+    
     def check_assumptions(self, interval):
         infinity = float('inf')
         self.limit1 = self.evaluate(interval[0])

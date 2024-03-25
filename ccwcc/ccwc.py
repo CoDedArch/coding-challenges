@@ -1,6 +1,7 @@
 from DailyByte import *
 import sys
-from getopt import getopt, GetoptError
+from getopt import getopt,GetoptError
+
 
 def count_bytes(file_name):
     with open(file_name, 'rb') as f:

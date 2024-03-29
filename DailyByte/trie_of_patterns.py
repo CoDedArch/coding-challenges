@@ -17,8 +17,13 @@ class TriePatterns:
             i += 1
         return
 
-    def confirm_valid_pattern(self, pattern):
-        return set(pattern) <= {'A', 'C', 'G', 'T'} and pattern not in self.patterns
+    def confirm_valid_pattern(self, pattern:str):
+        is_prefix = False
+        for pi in self.patterns:
+            is_prefix = pattern.startswith(pi)
+            if is_prefix:
+                break
+        return set(pattern) <= {'A', 'C', 'G', 'T'} and not is_prefix
 
 
 

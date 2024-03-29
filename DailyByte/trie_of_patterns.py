@@ -1,25 +1,24 @@
 class TriePatterns:
-    def __init__(self,patterns:list) -> None:
+    def __init__(self,n:int, patterns:list) -> None:
             self.patterns = patterns
+            self.n = n
 
-    def set_patterns(self,length_of_patterns):
+    def set_patterns(self):
         i = 1
         self.patterns = []
-        while i <= length_of_patterns:
+        while i <= self.n:
             is_a_valid_pattern = False
             while not is_a_valid_pattern:
-                pattern = input('enter the genome pattern allowable characters are: (A,C,G,T): ')    
+                pattern = input('enter the genome pattern; allowable characters are: (A,C,G,T): ')    
                 is_a_valid_pattern = self.confirm_valid_pattern(pattern)
             self.patterns.append(pattern)
+            if self.n-i > 0:
+                print(f'Genome valid and accepted-------> remaining {self.n-i} genome patterns')
+            i += 1
         return
 
-    @staticmethod
-    def confirm_valid_pattern(pattern):
-        return set(pattern) <= {'A', 'C', 'G', 'T'}
-
-
-
-
+    def confirm_valid_pattern(self, pattern):
+        return set(pattern) <= {'A', 'C', 'G', 'T'} and pattern not in self.patterns
 
 
 
@@ -30,3 +29,5 @@ while(is_in_range):
         is_in_range = False
 
 
+test_pattern = TriePatterns(n=n, patterns=[])
+test_pattern.set_patterns()

@@ -1,3 +1,5 @@
+import unittest
+
 patterns = []
 class TrieNode:
     def __init__(self, char: str):
@@ -63,3 +65,22 @@ trie = Trie()
 for pattern in patterns:
     trie.insert(pattern)
 trie.display()
+
+
+class TestTrie(unittest.TestCase):
+    def setUp(self):
+        self.trie = Trie()
+
+    def test_insert(self):
+        self.trie.insert("ACGT")
+        self.assertEqual(self.trie.root.children["A"].char, "A")
+        self.assertEqual(self.trie.root.children["A"].children["C"].char, "C")
+
+    def test_insert_multiple(self):
+        self.trie.insert("ACGT")
+        self.trie.insert("ACGA")
+        self.assertEqual(self.trie.root.children["A"].children["C"].children["G"].children["T"].char, "T")
+        self.assertEqual(self.trie.root.children["A"].children["C"].children["G"].children["A"].char, "A")
+
+if __name__ == "__main__":
+    unittest.main()

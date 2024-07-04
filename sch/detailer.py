@@ -37,15 +37,15 @@ class Detailer:
 
     def showWorking(self):
         self.__do()
-        print("NUMBER---------------------COUNT--------------------LINES APPEARED IN", end='\n')
+        print("NUMBER--------------------- NO_OCCURANCE --------------------LINES APPEARED IN", end='\n')
         for key, value in self.dictOfNums.items():
-            print(f'{key} ------------------------- {value['count']}  ------------------------ {value['onLine']}')
+            print(f'{key} -------------------------   {value['count']}           ------------------------ {value['onLine']}')
 
     def getNumDetails(self, num):
         self.__do()
         try:
-            print("NUMBER---------------------COUNT--------------------LINES APPEARED IN", end='\n')
-            print(f'{num} ------------------------- {self.dictOfNums[num]['count']}  ------------------------ {self.dictOfNums[num]['onLine']}')
+            print("NUMBER--------------------- NO_OCCURANCE --------------------LINES APPEARED IN", end='\n')
+            print(f'{num} -------------------------   {self.dictOfNums[num]['count']}               ------------------------ {self.dictOfNums[num]['onLine']}')
         except KeyError:
             print("Number doesn't Exist in file")
             return

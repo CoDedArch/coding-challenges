@@ -9,12 +9,9 @@ class Detailer:
     def __dictionizer(self, nums_in_line:list, line_no):
         for num in nums_in_line:
             num = num.rstrip('\n')
-            if num not in self.dictOfNums.keys():
-                self.dictOfNums[num] = {'count': 1, 'onLine': []}
-                self.dictOfNums[num]['onLine'].append(line_no)
-            else:
-                self.dictOfNums[num]['count'] += 1
-                self.dictOfNums[num]['onLine'].append(line_no)
+            self.dictOfNums.setdefault(num,{'count': 0, 'onLine': []})
+            self.dictOfNums[num]['count'] += 1
+            self.dictOfNums[num]['onLine'].append(line_no)
 
     def __getNumsInLineOf(self, pathto:str) -> None:
         """ ln ----> line """
